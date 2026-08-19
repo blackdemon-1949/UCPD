@@ -1,0 +1,12 @@
+# Build artifacts
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.d
+build/
+build_boot/
+build_appli/
+file_list.txt
+non_driver_files.txt
