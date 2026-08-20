@@ -178,10 +178,19 @@ SECTIONS
     __bss_end__ = _ebss;
   } >RAM
 
+  .sram_data :
+  {
+    . = ALIGN(32);
+    *(.sram_data)
+    *(.sram_data*)
+    . = ALIGN(32);
+  } > RAM
+
   RW_NONCACHEABLE (NOLOAD):
   {
     __NONCACHEABLEBUFFER_BEGIN = .;/* create symbol for start of section */
     KEEP(*(noncacheable_buffer))
+    *(.sram_noncacheable)
     __NONCACHEABLEBUFFER_END = .;  /* create symbol for start of section */
   } > RAM_NONCACHEABLEBUFFER
 
